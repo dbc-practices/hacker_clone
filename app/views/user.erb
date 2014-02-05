@@ -1,0 +1,25 @@
+<div class="container">
+  <p><a href="/logout">Logout</a></p>
+  <p>Profile page for user <%= @user.username %></p>
+
+  <p>Account created at <%= @user.created_at %></p>
+
+  <p><a href='<%= "/users/#{@user.id}/posts" %>'>
+    See all posts by user</a></p>
+
+  <p><a href='<%= "/users/#{@user.id}/comments" %>'>
+    See all comments by user</a></p>
+
+
+  <p><h2>POSTS</h2></p>
+
+  <%= erb :_posts %>
+  <p></p>
+
+  <p><h2>COMMENTS</h2></p>
+  <%= erb :_comments %>
+</div>
+
+
+
+

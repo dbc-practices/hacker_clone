@@ -1,0 +1,9 @@
+ <ol>
+    <% @comments.each do |comment| %>
+      <li>
+        <p><a href='<%= "/users/#{comment.author.id}" %>'>Authored by <%= comment.author.username %></a></p>
+        <p><%= comment.content %></p>
+        <p><a href='<%= "/posts/#{comment.post.id}" %>'>Post</a></p>
+      </li>
+    <% end %>
+  </ol>

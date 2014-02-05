@@ -1,0 +1,7 @@
+<div class="container">
+  <%= erb :_post %>
+  <form action='<%= "/posts/#{@post.id}/comment" %>' method="post">
+    <p>Comment here:<p><textarea name="comment" cols="50" rows="10"> </textarea></p><p>
+    <p><input type="submit" value="submit comment" /></p>
+  </form>
+</div>
