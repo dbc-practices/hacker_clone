@@ -1,9 +1,11 @@
  <ol>
     <% @comments.each do |comment| %>
-      <li>
-        <p><a href='<%= "/users/#{comment.author.id}" %>'>Authored by <%= comment.author.username %></a></p>
+      <li class="comment">
         <p><%= comment.content %></p>
-        <p><a href='<%= "/posts/#{comment.post.id}" %>'>Post</a></p>
+        Comment Vote count: <span class="vote_count"><%= comment.comment_votes.count %></span></br>
+        Upvote: <a class="vote" href='<%="/comments/#{comment.id}/upvote"%>'>Vote comment up</a><br>
+        <p>Comment by<a href='<%= "/users/#{comment.author.id}" %>'> <%= comment.author.username %></a></p>
+        <p><a href='<%= "/posts/#{comment.post.id}" %>'>See original post</a></p>
       </li>
     <% end %>
   </ol>

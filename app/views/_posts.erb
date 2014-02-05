@@ -1,9 +1,11 @@
 <ol>
 <% @posts.each do |post| %>
-  <li>
+  <li class="post">
     <p><a href='<%= post.url %>'><%= post.title %></a></p>
-    <a href='<%= "/posts/#{post.id}" %>'>Comments</a>
-    <a href='<%= "/users/#{post.creator.id}" %>'>
+    Post Vote count: <span class="vote_count"><%= post.post_votes.count %></span></br>
+    Upvote: <a class="vote" href='<%="/posts/#{post.id}/upvote"%>'>Vote post up</a><br>
+    <a href='<%= "/posts/#{post.id}" %>'><%= post.comments.count %> comments</a></br>
+    Posted by <a href='<%= "/users/#{post.creator.id}" %>'>
       <%= post.creator.username %></a>
   </li>
 

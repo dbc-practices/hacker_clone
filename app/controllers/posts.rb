@@ -13,6 +13,14 @@ post '/posts/:id/comment' do
   redirect to "posts/#{post_id}"
 end
 
+get '/comments/:id/upvote' do
+  comment_id = params[:id]
+  voter_id = session[:user_id]
+  CommentVote.create( comment_id: comment_id,
+                      voter_id: voter_id)
+  Comment.find(comment_id).comment_votes.count.to_s
+end
+
 get '/posts/new' do
   erb :new_post
 end
@@ -32,4 +40,12 @@ get '/posts/:id' do
   @post = Post.find(id)
   @comments = @post.comments
   erb :show_post
+end
+
+get '/posts/:id/upvote' do
+  post_id = params[:id]
+  voter_id = session[:user_id]
+  PostVote.create(voter_id: voter_id,
+                  post_id: post_id)
+  Post.find(post_id).post_votes.count.to_s
 end

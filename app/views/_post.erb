@@ -1,3 +1,7 @@
+<div class="post">
 Post title: <%= @post.title %><br>
 URL: <%= @post.url %><br>
 Post by : <%= @post.creator.username %><br>
+Vote count: <span class="vote_count"><%= @post.post_votes.count %></span></br>
+Upvote: <a class="vote" href='<%="/posts/#{@post.id}/upvote"%>'>Vote post up</a>
+</div>
